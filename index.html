@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux 中 Samba 的應用</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu button {
+      background-color: #ffffff10;
+      border: 2px solid #fff;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .menu button:hover {
+      background-color: white;
+      color: #1e3c72;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto 0;
+      padding: 20px;
+      background-color: #ffffff10;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Linux 中 Samba 的應用</h1>
+  <div class="menu">
+    <button onclick="showContent('intro')">第一章 緒論</button>
+    <button onclick="showContent('structure')">第二章 系統架構</button>
+    <button onclick="showContent('install')">第三章 安裝與設定</button>
+    <button onclick="showContent('application')">第四章 應用實例</button>
+    <button onclick="showContent('conclusion')">第五章 結論與建議</button>
+  </div>
+
+  <div class="content" id="content">
+    <p>請選擇章節以查看內容。</p>
+  </div>
+
+  <script>
+    const contents = {
+      intro: `
+        <h2>第一章 緒論</h2>
+        <p>Samba 是一個實現 SMB 協定的自由軟體，使得 Linux 系統可以與 Windows 系統共享檔案與印表機。本章將說明研究背景、目的與動機。</p>
+      `,
+      structure: `
+        <h2>第二章 系統架構</h2>
+        <p>本章介紹 Samba 的整體架構，包含其與作業系統間的互動方式、用戶驗證流程以及設定檔的結構。</p>
+      `,
+      install: `
+        <h2>第三章 安裝與設定</h2>
+        <p>說明如何在 Linux 上安裝 Samba、建立共享資料夾、設定用戶與權限，以及典型的 smb.conf 配置。</p>
+      `,
+      application: `
+        <h2>第四章 應用實例</h2>
+        <p>展示實際應用 Samba 的案例，如企業內部文件共享環境建置、跨平台使用者存取管理等。</p>
+      `,
+      conclusion: `
+        <h2>第五章 結論與建議</h2>
+        <p>總結研究成果與實作心得，並提出未來可能的優化方向與研究建議。</p>
+      `
+    };
+
+    function showContent(key) {
+      document.getElementById('content').innerHTML = contents[key];
+    }
+  </script>
+</body>
+</html>
